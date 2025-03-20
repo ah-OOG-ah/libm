@@ -67,7 +67,12 @@ unexpected_cfgs = { level = "warn", check-cfg = [
   'cfg(feature, values("compiler-builtins"))',
 ] }
 
-# The default release profile is unchanged.
+# The default release profile has abort panics.
+[profile.release]
+panic = "abort"
+
+[profile.dev]
+panic = "abort"
 
 # Release mode with debug assertions
 [profile.release-checked]
