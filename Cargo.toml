@@ -70,6 +70,8 @@ unexpected_cfgs = { level = "warn", check-cfg = [
 # The default release profile has abort panics.
 [profile.release]
 panic = "abort"
+codegen-units = 1
+lto = "fat"
 
 [profile.dev]
 panic = "abort"
@@ -79,13 +81,6 @@ panic = "abort"
 inherits = "release"
 debug-assertions = true
 overflow-checks = true
-
-# Release with maximum optimizations, which is very slow to build. This is also
-# what is needed to check `no-panic`.
-[profile.release-opt]
-inherits = "release"
-codegen-units = 1
-lto = "fat"
 
 [profile.bench]
 # Required for iai-callgrind
